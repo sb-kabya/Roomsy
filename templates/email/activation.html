@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Activate Account</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #cdcdcd; padding: 20px;">
+    <div style="max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 8px;">
+        <h2 style="text-align: center;">Activate Your Account</h2>
+
+        <p>Hello {{ user.first_name }},</p>
+
+        <p>
+            Thank you for registering with Roomsy.
+            Please click the button below to activate your account.
+        </p>
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ protocol }}://{{ domain }}/api/accounts/users/activation/?uid={{ uid }}&token={{ token }}"
+               style="background-color: #4CAF50;
+                      color: white;
+                      padding: 12px 25px;
+                      text-decoration: none;
+                      border-radius: 5px;
+                      display: inline-block;">
+                Activate Account
+            </a>
+        </div>
+
+        <p style="font-size: 14px; color: gray;">
+            If you did not create this account, please ignore this email.
+        </p>
+        <hr>
+
+    </div>
+
+</body>
+</html>
