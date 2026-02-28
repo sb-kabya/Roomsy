@@ -7,5 +7,8 @@
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "hotel_booking/wsgi.py" }]
+  "routes": [{ "src": "/(.*)", "dest": "hotel_booking/wsgi.py" }],
+  "hooks": {
+    "build": "python manage.py collectstatic --noinput && python manage.py migrate"
+  }
 }
