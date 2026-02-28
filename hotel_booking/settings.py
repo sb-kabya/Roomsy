@@ -2,7 +2,7 @@ from pathlib import Path
 import environ
 from datetime import timedelta
 import urllib.parse
-
+from corsheaders.defaults import default_headers
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(DEBUG=(bool, True))
@@ -188,3 +188,18 @@ import os
 
 if 'VERCEL' in os.environ:
     DEBUG = False
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'Authorization',
+    'Content-Type',
+    'Accept',
+    'Origin',
+    'X-Requested-With',
+]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
