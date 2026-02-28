@@ -159,11 +159,9 @@ DJOSER = {
     },
 }
 
-# ── CORS ───────────────────────────────────────────────────────────────────────
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-# ── Email ──────────────────────────────────────────────────────────────────────
 EMAIL_BACKEND       = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST          = 'smtp.gmail.com'
 EMAIL_PORT          = 587
@@ -172,7 +170,6 @@ EMAIL_HOST_USER     = env('EMAIL_HOST_USER',     default='')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER
 
-# ── Swagger ────────────────────────────────────────────────────────────────────
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'Bearer': {

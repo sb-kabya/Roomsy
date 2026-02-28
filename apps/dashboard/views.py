@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.db.models import Count, Sum, Q
 from datetime import timedelta
 from django.contrib.auth import get_user_model
-
+from django.http import JsonResponse
 from apps.bookings.models import Booking
 from apps.hotels.models import Hotel, Room
 from apps.reviews.models import Review
@@ -63,3 +63,5 @@ class BookingTrendsView(APIView):
                 for t in trend
             ],
         })
+def root_view(request):
+    return JsonResponse({"message": "Roomsy API is running!"})

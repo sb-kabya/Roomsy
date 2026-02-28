@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from apps.dashboard.views import root_view
 schema_view = get_schema_view(
     openapi.Info(
         title="Roomsy Hotel Booking API",
@@ -16,6 +17,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', root_view, name='root'),
     path('api/accounts/',include('apps.accounts.urls')),
     path('api/hotels/',include('apps.hotels.urls')),
     path('api/bookings/',include('apps.bookings.urls')),
