@@ -102,10 +102,10 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# ── REST Framework ─────────────────────────────────────────────────────────────
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -117,7 +117,6 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
 }
 
-# ── JWT ────────────────────────────────────────────────────────────────────────
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
@@ -127,7 +126,6 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-# ── Djoser ─────────────────────────────────────────────────────────────────────
 BACKEND_URL  = env('BACKEND_URL', default='http://localhost:8000')
 FRONTEND_URL = env('FRONTEND_URL', default='http://localhost:8000')
 DOMAIN    = BACKEND_URL.replace('https://', '').replace('http://', '')
