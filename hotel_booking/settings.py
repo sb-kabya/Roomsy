@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'apps.bookings',
     'apps.reviews',
     'apps.dashboard',
-    'debug_toolbar'
 ]
 INTERNAL_IPS = [
     #...
@@ -39,7 +38,6 @@ INTERNAL_IPS = [
     #...
 ]
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -194,3 +192,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+import os
+
+if 'VERCEL' in os.environ:
+    DEBUG = False
